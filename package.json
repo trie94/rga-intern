@@ -1,0 +1,39 @@
+{
+  "name": "rga-intern",
+  "version": "1.0.0",
+  "description": "rga intern project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trie94/rga-intern.git"
+  },
+  "author": "Yein",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trie94/rga-intern/issues"
+  },
+  "homepage": "https://github.com/trie94/rga-intern#readme",
+  "dependencies": {
+    "d3": "^5.5.0",
+    "express": "^4.16.3",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-hot-loader": "^1.4.0",
+    "css-loader": "^1.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.1",
+    "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  }
+}
