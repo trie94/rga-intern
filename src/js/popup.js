@@ -1,4 +1,4 @@
-import './style.css';
+import './css/style.css';
 
 let changeColor = document.getElementById('changeColor');
 
