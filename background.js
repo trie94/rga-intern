@@ -1,16 +1,50 @@
 'use strict';
 
+// user data
+let domain, topic, issue, visit_time = [];
+let duration;
+
+let media_intake = {
+  "domain": domain,
+  "topic": topic,
+  "issue": issue,
+  "time": visit_time,
+  "duration": duration
+};
+
+let user_data = [];
+
+// time
+let date = new Date();
+let start_hour = date.getHours();
+let start_minute = date.getMinutes();
+
 chrome.runtime.onInstalled.addListener(() => {
-  chrome.storage.sync.set({color: '#3aa757'}, function() {
-    console.log("The color is green.");
+  chrome.storage.sync.set({ color: '#3aa757' }, () => {
+    console.log("value is set to", color);
   });
-  chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
+  chrome.declarativeContent.onPageChanged.removeRules(undefined, () => {
     chrome.declarativeContent.onPageChanged.addRules([{
       conditions: [new chrome.declarativeContent.PageStateMatcher({
-        pageUrl: {hostEquals: 'developer.chrome.com'},
+        pageUrl: { hostEquals: 'developer.chrome.com' },
       })
       ],
-          actions: [new chrome.declarativeContent.ShowPageAction()]
+      actions: [new chrome.declarativeContent.ShowPageAction()]
     }]);
+  });
+});
+
+chrome.history.onVisited.addListener(() => {
+  chrome.history.search({ text: 'develop', maxResults: 3 }, (data) => {
+    let page = data[0];
+    for (let i = 0; i < data.length; i ++){
+      media_intake.domain = page.url;
+      media_intake.topic = page.title;
+      media_intake.issue = page.title;
+      media_intake.visit_time = page.lastVisitTime;
+
+      user_data[i] = media_intake;
+    }
+    console.log(user_data);
   });
 });
