@@ -1,0 +1,25 @@
+{
+    "domains": {
+        "Huffington Post":["https://www.huffingtonpost.com/", "huffington", "huffingtonpost"],
+        "Buzzfeed": ["https://www.buzzfeed.com/", "buzzfeed"],
+        "Vox": ["https://www.vox.com/", "vox"],
+        "NYTimes": ["https://www.nytimes.com/", "nytimes"],
+        "CNN": ["https://www.cnn.com/", "cnn"],
+        "Washington Post": ["https://www.washingtonpost.com/", "washington", "washingtonpost"],
+        "NPR News": ["https://www.npr.org/sections/news/", "npr"],
+        "Wall Street Journal": ["https://www.wsj.com/", "wsj", "wallstreet", "wallstreetjournal"],
+        "The Hill": ["http://thehill.com/", "hill", "thehill"],
+        "The Examiner": ["http://www.examiner.net/", "examiner"],
+        "FOX News": ["http://www.foxnews.com/", "fox"],
+        "The Blaze": ["https://www.theblaze.com/", "blaze", "theblaze"],
+        "Breitbart": ["https://www.breitbart.com/", "breitbart"]
+    },
+
+    "topics":{
+        "Politics": "politics"
+    },
+
+    "issues": {
+        "Immigrantion": ["ICE", "Trump", "zero-tolerance", "families", "family separation"]
+    }
+}

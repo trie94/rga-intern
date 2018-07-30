@@ -12,6 +12,10 @@
       "scripts": ["background.js"],
       "persistent": false
     },
+    "web_accessible_resources":[
+      "src/data/data-pool.json",
+      "src/data/userdata-template.js"
+    ],
     "options_page": "src/html/options.html",
     "page_action": {
       "default_popup": "src/html/popup.html",

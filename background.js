@@ -13,6 +13,19 @@ let media_intake = {
 };
 
 let user_data = [];
+const data_url = chrome.runtime.getURL("src/data/data-pool.json");
+let data_pool;
+const user = chrome.runtime.getURL("src/data/userdata-template.js");
+// console.log(user);
+
+function fetchData() {
+  fetch(data_url)
+  .then(res => res.json())
+  .then(data => data_pool = data)
+  .then(() => console.log(data_pool))
+}
+
+fetchData();
 
 // time
 let date = new Date();
@@ -21,7 +34,7 @@ let start_minute = date.getMinutes();
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.sync.set({ color: '#3aa757' }, () => {
-    console.log("value is set to", color);
+    // console.log("value is set to", color);
   });
   chrome.declarativeContent.onPageChanged.removeRules(undefined, () => {
     chrome.declarativeContent.onPageChanged.addRules([{
@@ -37,7 +50,7 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.history.onVisited.addListener(() => {
   chrome.history.search({ text: 'develop', maxResults: 3 }, (data) => {
     let page = data[0];
-    for (let i = 0; i < data.length; i ++){
+    for (let i = 0; i < data.length; i++) {
       media_intake.domain = page.url;
       media_intake.topic = page.title;
       media_intake.issue = page.title;
@@ -45,6 +58,10 @@ chrome.history.onVisited.addListener(() => {
 
       user_data[i] = media_intake;
     }
-    console.log(user_data);
+    // console.log(user_data);
   });
+});
+
+chrome.history.onVisitRemoved.addListener(() => {
+  console.log("exit");
 });
