@@ -18,15 +18,6 @@ let data_pool;
 const user_url = chrome.runtime.getURL("src/data/userdata-template.js");
 let user_data = [];
 
-// const temp = () => {
-//   return fetch(data_url)
-//     .then(response => { return response.json(); })
-//     .then(data => {
-//       data_pool = data;
-//       return data_pool;
-//     });
-// }
-
 // time
 let date = new Date();
 let start_hour = date.getHours();
@@ -68,19 +59,6 @@ chrome.history.onVisited.addListener((res) => {
         }
       }
     });
-
-  // chrome.history.search({ text: 'develop', maxResults: 3 }, (data) => {
-  //   let page = data[0];
-  //   for (let i = 0; i < data.length; i++) {
-  //     media_intake.domain = page.url;
-  //     media_intake.topic = page.title;
-  //     media_intake.issue = page.title;
-  //     media_intake.visit_time = page.lastVisitTime;
-
-  //     user_data[i] = media_intake;
-  //   }
-  //   // console.log(user_data);
-  // });
 });
 
 chrome.history.onVisitRemoved.addListener(() => {
