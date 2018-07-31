@@ -12,25 +12,28 @@ let media_intake = {
   "duration": duration
 };
 
-let user_data = [];
 const data_url = chrome.runtime.getURL("src/data/data-pool.json");
 let data_pool;
-const user = chrome.runtime.getURL("src/data/userdata-template.js");
-// console.log(user);
 
-function fetchData() {
-  fetch(data_url)
-  .then(res => res.json())
-  .then(data => data_pool = data)
-  .then(() => console.log(data_pool))
-}
+const user_url = chrome.runtime.getURL("src/data/userdata-template.js");
+let user_data = [];
 
-fetchData();
+// const temp = () => {
+//   return fetch(data_url)
+//     .then(response => { return response.json(); })
+//     .then(data => {
+//       data_pool = data;
+//       return data_pool;
+//     });
+// }
 
 // time
 let date = new Date();
 let start_hour = date.getHours();
 let start_minute = date.getMinutes();
+
+let end_hour;
+let end_minute;
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.sync.set({ color: '#3aa757' }, () => {
@@ -47,19 +50,37 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
-chrome.history.onVisited.addListener(() => {
-  chrome.history.search({ text: 'develop', maxResults: 3 }, (data) => {
-    let page = data[0];
-    for (let i = 0; i < data.length; i++) {
-      media_intake.domain = page.url;
-      media_intake.topic = page.title;
-      media_intake.issue = page.title;
-      media_intake.visit_time = page.lastVisitTime;
+chrome.history.onVisited.addListener((res) => {
 
-      user_data[i] = media_intake;
-    }
-    // console.log(user_data);
-  });
+  let url = res.url;
+  let platform;
+
+  return fetch(data_url)
+    .then(response => { return response.json(); })
+    .then(data => {
+      for (let i = 0; i < Object.keys(data.domains).length; i++) {
+        for (let j = 0; j < data.domains[i].length; j++) {
+          if (url.includes(data.domains[i][j])) {
+            platform = data.domains[i][0];
+            console.log(platform);
+            return platform;
+          }
+        }
+      }
+    });
+
+  // chrome.history.search({ text: 'develop', maxResults: 3 }, (data) => {
+  //   let page = data[0];
+  //   for (let i = 0; i < data.length; i++) {
+  //     media_intake.domain = page.url;
+  //     media_intake.topic = page.title;
+  //     media_intake.issue = page.title;
+  //     media_intake.visit_time = page.lastVisitTime;
+
+  //     user_data[i] = media_intake;
+  //   }
+  //   // console.log(user_data);
+  // });
 });
 
 chrome.history.onVisitRemoved.addListener(() => {
