@@ -1,6 +1,6 @@
 'use strict';
 
-// user data
+// media data
 let domain, topic, issue, visit_time = [];
 let duration;
 
@@ -20,8 +20,6 @@ let user_data = [];
 
 // time
 let date = new Date();
-let start_hour = date.getHours();
-let start_minute = date.getMinutes();
 
 let end_hour;
 let end_minute;
@@ -41,17 +39,21 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
-chrome.history.onVisited.addListener((res) => {
+chrome.tabs.onCreated.addListener((tab) => {
 
-  let url = res.url;
+  let url;
+  let title;
   let platform;
 
-  return fetch(data_url)
+  let start_hour = date.getHours();
+  let start_minute = date.getMinutes();
+
+  fetch(data_url)
     .then(response => { return response.json(); })
     .then(data => {
       for (let i = 0; i < Object.keys(data.domains).length; i++) {
         for (let j = 0; j < data.domains[i].length; j++) {
-          if (url.includes(data.domains[i][j])) {
+          if (tab.url.includes(data.domains[i][j])) {
             platform = data.domains[i][0];
             console.log(platform);
             return platform;
@@ -59,8 +61,14 @@ chrome.history.onVisited.addListener((res) => {
         }
       }
     });
+
+  console.log("created", tab.url, tab.title);
 });
 
-chrome.history.onVisitRemoved.addListener(() => {
-  console.log("exit");
+
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  console.log("on updated", tab);
+})
+chrome.tabs.onRemoved.addListener(() => {
+  console.log("removed");
 });
