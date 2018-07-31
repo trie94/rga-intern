@@ -7,7 +7,9 @@
       "declarativeContent",
       "storage",
       "history",
-      "tabs"
+      "tabs",
+      "https://www.google.com/",
+      "https://developer.chrome.com/"
     ],
     "background": {
       "scripts": ["background.js"],
@@ -17,6 +19,7 @@
       "src/data/data-pool.json",
       "src/data/userdata-template.js"
     ],
+    "contents_scripts":[],
     "options_page": "src/html/options.html",
     "page_action": {
       "default_popup": "src/html/popup.html",

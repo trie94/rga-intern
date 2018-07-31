@@ -2,7 +2,10 @@
 
 // media data
 let domain, topic, issue, visit_time = [];
-let duration;
+
+// time
+let date = new Date();
+let start_hour, start_minute, end_hour, end_minute, duration;
 
 let media_intake = {
   "domain": domain,
@@ -18,11 +21,13 @@ let data_pool;
 const user_url = chrome.runtime.getURL("src/data/userdata-template.js");
 let user_data = [];
 
-// time
-let date = new Date();
-
-let end_hour;
-let end_minute;
+var xhr = new XMLHttpRequest();
+xhr.open("GET", data_url, true);
+xhr.onreadystatechange = () => {
+  var resp = xhr.responseText;
+  console.log(resp);
+}
+xhr.send();
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.sync.set({ color: '#3aa757' }, () => {
@@ -45,8 +50,8 @@ chrome.tabs.onCreated.addListener((tab) => {
   let title;
   let platform;
 
-  let start_hour = date.getHours();
-  let start_minute = date.getMinutes();
+  start_hour = date.getHours();
+  start_minute = date.getMinutes();
 
   fetch(data_url)
     .then(response => { return response.json(); })
@@ -70,5 +75,9 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   console.log("on updated", tab);
 })
 chrome.tabs.onRemoved.addListener(() => {
+  end_hour = date.getHours();
+  end_minute = date.getMinutes();
+
+  
   console.log("removed");
 });
