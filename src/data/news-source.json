@@ -1,0 +1,98 @@
+{
+    "0":{
+        "name":"Huffington Post",
+        "bias":"0.45",
+        "credibility":"0.45",
+        "domain":"https://www.huffingtonpost.com/"
+    },
+    "1":{
+        "name":"Buzzfeed",
+        "bias":"0.5",
+        "credibility":"0.4",
+        "domain":"https://www.buzzfeed.com/"
+    },
+    "2":{
+        "name":"Vox",
+        "bias":"0.55",
+        "credibility":"0.7",
+        "domain":"https://www.vox.com/"
+    },
+    "3":{
+        "name":"NYTimes",
+        "bias":"0.8",
+        "credibility":"0.8",
+        "domain":"https://www.nytimes.com/"
+    },
+    "4":{
+        "name":"CNN",
+        "bias":"0.85",
+        "credibility":"0.5",
+        "domain":"https://www.cnn.com/"
+    },
+    "5":{
+        "name":"Washington Post",
+        "bias":"0.8",
+        "credibility":"0.8",
+        "domain":"https://www.washingtonpost.com/"
+    },
+    "6":{
+        "name":"NPR News",
+        "bias":"0.9",
+        "credibility":"0.9",
+        "domain":"https://www.npr.org/sections/news/"
+    },
+    "7":{
+        "name":"Wall Street Journal",
+        "bias":"0.85",
+        "credibility":"0.8",
+        "domain":"https://www.wsj.com/"
+    },
+    "8":{
+        "name":"The Hill",
+        "bias":"0.7",
+        "credibility":"0.85",
+        "domain":"http://thehill.com/"
+    },
+    "9":{
+        "name":"The Examiner",
+        "bias":"0.5",
+        "credibility":"0.5",
+        "domain":"http://www.examiner.net/"
+    },
+    "10":{
+        "name":"FOX News",
+        "bias":"0.3",
+        "credibility":"0.2",
+        "domain":"http://www.foxnews.com/"
+    },
+    "11":{
+        "name":"The Blaze",
+        "bias":"0.35",
+        "credibility":"0",
+        "domain":"https://www.theblaze.com/"
+    },
+    "12":{
+        "name":"Breitbart",
+        "bias":"0.2",
+        "credibility":"0.1",
+        "domain":"https://www.breitbart.com/"
+    },
+    "13":{
+        "name":"USA Today",
+        "bias":"1.0",
+        "credibility":"0.85",
+        "domain":"https://www.usatoday.com/"
+    },
+    "14":{
+        "name": "AP News",
+        "bias": "0.95",
+        "credibility":"1.0",
+        "domain": "https://www.apnews.com/"
+    },
+    "15":{
+        "name": "Washington Times",
+        "bias": "0.5",
+        "credibility":"0.5",
+        "domain": "https://www.washingtontimes.com/"
+    }
+}
