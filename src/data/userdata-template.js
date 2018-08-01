@@ -17,5 +17,3 @@ let media_intake = {
     "issue": issue,
     "time": time
 };
-
-module.exports = user;
