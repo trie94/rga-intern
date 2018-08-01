@@ -21,6 +21,7 @@
     },
 
     "issues": {
-        "Immigrantion": ["ICE", "Trump", "zero-tolerance", "families", "family separation"]
+        "0": ["immigration", "ICE", "Trump", "zero-tolerance", "families", "family separation"],
+        "1": ["chrome", "developer", "google"]
     }
 }

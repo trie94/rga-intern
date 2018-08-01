@@ -5,7 +5,7 @@ let domain, topic, issue, visit_time = [];
 
 // time
 let date = new Date();
-let start_hour, start_minute, end_hour, end_minute, duration;
+let start_time, end_time, duration;
 
 let media_intake = {
   "domain": domain,
@@ -27,7 +27,7 @@ xhr.open("GET", data_url, true);
 xhr.onreadystatechange = () => {
   if (xhr.readyState == 4 && xhr.status === 200) {
     data_pool = JSON.parse(xhr.responseText);
-    // console.log(data_pool);
+    console.log(data_pool);
   }
 }
 xhr.send();
@@ -52,21 +52,21 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.tabs.onCreated.addListener((tab) => {
 
   let url;
-  let title;
-  let platform;
+  let topic = "politics";
+  let issue;
+  let platform = null;
 
   // get the start time
-  start_hour = date.getHours();
-  start_minute = date.getMinutes();
+  start_time = Date.now();
 
   // check the data pool
   if (data_pool == null || data_pool == undefined) {
-    return;
+    console.log("data_pool is null or undefined");
   } else {
-    console.log("data_pool: ", data_pool.domains);
+    console.log(data_pool);
   }
 
-
+  // check domain
   for (let i = 0; i < Object.keys(data_pool.domains).length; i++) {
     for (let j = 0; j < data_pool.domains[i].length; j++) {
       if (tab.url.includes(data_pool.domains[i][j])) {
@@ -74,6 +74,21 @@ chrome.tabs.onCreated.addListener((tab) => {
         console.log(platform);
       }
     }
+  }
+
+  if (platform != null){
+    for (let i = 0; i < Object.keys(data_pool.issues).length; i++) {
+      for (let j = 0; j < data_pool.issues[i].length; j++) {
+        if (tab.url.includes(data_pool.issues[i][j])) {
+          issue = data_pool.issues[i][0];
+          console.log("issue: ", issue);
+        }
+      }
+    }
+  }
+
+  if (issue != null){
+    console.log("hey");
   }
 
   // fetch(data_url)
@@ -94,15 +109,14 @@ chrome.tabs.onCreated.addListener((tab) => {
   console.log("created", tab.url, tab.title);
 });
 
-
 // chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 //   console.log("on updated", tab);
 // });
 
+// activated?
+
 chrome.tabs.onRemoved.addListener(() => {
-  end_hour = date.getHours();
-  end_minute = date.getMinutes();
-
-
-  console.log("removed");
+  end_time = Date.now();
+  duration = Math.round((end_time - start_time) / 1000);
+  console.log("duration: ", duration);
 });
