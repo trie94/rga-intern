@@ -5,6 +5,7 @@ const BIAS = ["far_left", "left", "mid_left",
     "center", "mid_right", "right", "far_right"
 ];
 
+const CREDIBILITY = ["low", "mid", "high"];
 // const CREDIBILITY = {
 //     "low": low,
 //     "mid": mid,
@@ -12,23 +13,21 @@ const BIAS = ["far_left", "left", "mid_left",
 // }
 
 // generate bias weight pool. 0 is highest 6 is lowest
-// const BIAS_WEIGHT = [0.4, 0.15, 0.15, 0.1, 0.1, 0.05, 0.05];
-const BIAS_WEIGHT = [40, 15, 15, 10, 10, 5, 5];
-
+const BIAS_WEIGHT = [0.4, 0.15, 0.15, 0.1, 0.1, 0.05, 0.05];
 let weights_pool = [];
 
 const generateWeightPool = () => {
     let index = 0;
     for (let i = 0; i < BIAS_WEIGHT.length; i ++){
-        for (let j = 0; j < BIAS_WEIGHT[i]; j++){
+        for (let j = 0; j < BIAS_WEIGHT[i] * 100; j++){
             weights_pool[index] = i;
             index ++;
         }
     }
 }
 generateWeightPool();
-// console.log(weights_pool);
 
+// generate credibility weight pool 0 is highest and 2 is lowest
 const CRED_WEIGHT = [0.6, 0.3, 0.1];
 
 function generateProfile(bias, cred, num, time) {
@@ -93,6 +92,5 @@ function getRandomInt(min, max) {
 }
 
 generateProfile("far_right", 1, 5, 3);
-console.log(getRandomInt(0, 100));
 
 // console.log(news);
