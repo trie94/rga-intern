@@ -11,7 +11,7 @@
         "bias":"0.1",
         "credibility":"0.0",
         "domain":"https://patribotics.blog/",
-        "side": "left"
+        "side": "far_left"
     },
     "occupy_democrats":{
         "name":"Occupy Democrats",
@@ -46,35 +46,35 @@
         "bias":"0.5",
         "credibility":"0.4",
         "domain":"https://www.buzzfeed.com/",
-        "side": "left"
+        "side": "mid_left"
     },
     "vox":{
         "name":"Vox",
         "bias":"0.55",
         "credibility":"0.7",
         "domain":"https://www.vox.com/",
-        "side": "left"
+        "side": "mid_left"
     },
     "nytimes":{
         "name":"NYTimes",
         "bias":"0.8",
         "credibility":"0.8",
         "domain":"https://www.nytimes.com/",
-        "side": "left"
+        "side": "center"
     },
     "cnn":{
         "name":"CNN",
         "bias":"0.85",
         "credibility":"0.5",
         "domain":"https://www.cnn.com/",
-        "side": "left"
+        "side": "center"
     },
     "washington_post":{
         "name":"Washington Post",
         "bias":"0.8",
         "credibility":"0.8",
         "domain":"https://www.washingtonpost.com/",
-        "side": "left"
+        "side": "center"
     },
     "npr_news":{
         "name":"NPR News",
@@ -151,14 +151,14 @@
         "bias":"0.7",
         "credibility":"0.85",
         "domain":"http://thehill.com/",
-        "side": "right"
+        "side": "mid_right"
     },
     "the_examiner":{
         "name":"The Examiner",
         "bias":"0.5",
         "credibility":"0.5",
         "domain":"http://www.examiner.net/",
-        "side": "right"
+        "side": "mid_right"
     },
     "fox_news":{
         "name":"FOX News",
@@ -179,14 +179,14 @@
         "bias":"0.2",
         "credibility":"0.1",
         "domain":"https://www.breitbart.com/",
-        "side": "right"
+        "side": "far_right"
     },
     "washington_times":{
         "name": "Washington Times",
         "bias": "0.5",
         "credibility":"0.5",
         "domain": "https://www.washingtontimes.com/",
-        "side": "right"
+        "side": "mid_right"
     },
     "the_daily_caller":{
         "name":"The Daily Caller",
@@ -200,7 +200,7 @@
         "bias":"0.5",
         "credibility":"0.25",
         "domain":"https://nypost.com/",
-        "side": "right"
+        "side": "mid_right"
     },
     "drudge_report":{
         "name":"Drudge Report",
@@ -214,7 +214,7 @@
         "bias":"0.1",
         "credibility":"0.0",
         "domain":"https://www.infowars.com/",
-        "side": "right"
+        "side": "far_right"
     },
     "news_max":{
         "name": "News Max",

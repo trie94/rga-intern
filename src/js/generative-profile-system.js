@@ -1,16 +1,12 @@
 import news from '../data/news-source.json';
 import issues from '../data/issues.json';
+import template from '../data/userdata-template';
 
 const BIAS = ["far_left", "left", "mid_left",
     "center", "mid_right", "right", "far_right"
 ];
 
 const CREDIBILITY = ["low", "mid", "high"];
-// const CREDIBILITY = {
-//     "low": low,
-//     "mid": mid,
-//     "high": high
-// }
 
 // generate bias weight pool. 0 is highest 6 is lowest
 const BIAS_WEIGHT = [0.4, 0.15, 0.15, 0.1, 0.1, 0.05, 0.05];
@@ -18,10 +14,10 @@ let weights_pool = [];
 
 const generateWeightPool = () => {
     let index = 0;
-    for (let i = 0; i < BIAS_WEIGHT.length; i ++){
-        for (let j = 0; j < BIAS_WEIGHT[i] * 100; j++){
+    for (let i = 0; i < BIAS_WEIGHT.length; i++) {
+        for (let j = 0; j < BIAS_WEIGHT[i] * 100; j++) {
             weights_pool[index] = i;
-            index ++;
+            index++;
         }
     }
 }
@@ -70,18 +66,51 @@ function generateProfile(bias, cred, num, time) {
             for (let i = 0, j = BIAS.length - 1; i < BIAS.length; i++ , j--) {
                 _bias[i] = BIAS[j];
             }
+            break;
     }
 
-    // get random int in the range of 1 -100
-
-    let readings = [];
+    // assign each 
+    let reading_biases = [];
     for (let i = 0; i < num; i++) {
-        readings[i] = weights_pool[getRandomInt(1, 99)];
-        readings[i] = _bias[readings[i]];
+        reading_biases[i] = weights_pool[getRandomInt(1, 99)];
+        reading_biases[i] = _bias[reading_biases[i]];
     }
-    // console.log("bias: ", bias, "\n", _bias);
-    console.log("reading: ", readings);
+
+    // get articles
+    let articles = [];
+    for (let i = 0; i < reading_biases.length; i ++){
+        articles[i] = getArticle(reading_biases[i]);
+    }
+    
+    console.log(articles);
+    // return articles;
 }
+
+// get one random article
+function getArticle(bias){
+    let articles = [];
+    let index = 0;
+
+    for (let source_id of Object.keys(news)){
+        let side = news[source_id].side;
+
+        if (bias === side){
+            articles.push(source_id);
+        }
+    }
+    // console.log("articles: ", articles);
+
+    if (articles.length > 0){
+        index = getRandomInt(0, articles.length-1);
+    } else {
+        index = 0;
+    }
+    
+    return articles[index];
+}
+
+let temp_person = generateProfile("left", 1, 20, 3);
+// console.log(temp_person);
 
 function getRandomFloat(min, max) {
     return Math.round((Math.random() * (max - min) + min) * 10) * 0.1;
@@ -90,7 +119,4 @@ function getRandomFloat(min, max) {
 function getRandomInt(min, max) {
     return Math.round((Math.random() * (max - min) + min));
 }
-
-generateProfile("far_right", 1, 5, 3);
-
 // console.log(news);
