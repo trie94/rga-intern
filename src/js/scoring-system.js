@@ -68,6 +68,7 @@ function scoringSystem(bias, cred, time) {
 
 // a random guy
 total_score = scoringSystem(0.3, 0.8, 200);
+
 // // time is the same
 
 // // biased person, with high credibility
