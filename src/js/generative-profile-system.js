@@ -1,24 +1,34 @@
 import news from '../data/news-source.json';
 import issues from '../data/issues.json';
 
-// news platform
-let domain;
+// const BIAS = {
+//     "left": left,
+//     "mid-left": mid_left,
+//     "center": center,
+//     "mid-right": mid_right,
+//     "right": right
+// }
 
-// politics, sports, health...
-let topic;
+// const CREDIBILITY = {
+//     "low": low,
+//     "mid": mid,
+//     "high": high
+// }
 
-// sub topics within the higher topic
-let issue;
+function generateProfile(bias, cred, num, time){
+    // distribute random time based on the avg time
+    let avg_time = [];
+    for (let i = 0; i < num; i ++){
+        avg_time[i] = time + getRandomFloat(-1, 1);
+        console.log(avg_time[i]);
+    }
+// e.g. if left, distribute total article to left side
+}
 
-// time user spent on the domain
-let time;
+function getRandomFloat(min, max) {
+    return Math.round((Math.random() * (max - min) + min) * 10) * 0.1;
+  }
 
-// an object that stores user's media intake
-let media_intake = {
-    "domain": domain,
-    "topic": topic,
-    "issue": issue,
-    "time": time
-};
+generateProfile(1,1,5,3);
 
 console.log(news);
