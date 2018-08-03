@@ -1,17 +1,20 @@
 import news from '../data/news-source.json';
 import issues from '../data/issues.json';
-import template from '../data/userdata-template';
 
-const BIAS = ["far_left", "left", "mid_left",
-    "center", "mid_right", "right", "far_right"
-];
+// template for each media_intake
+let media_intake = {
+    "source": "",
+    "topic": "politics",
+    "issue": "",
+    "time": "",
+};
 
+const BIAS = ["far_left", "left", "mid_left", "center", "mid_right", "right", "far_right"];
 const CREDIBILITY = ["low", "mid", "high"];
 
 // generate bias weight pool. 0 is highest 6 is lowest
 const BIAS_WEIGHT = [0.4, 0.15, 0.15, 0.1, 0.1, 0.05, 0.05];
 let weights_pool = [];
-
 const generateWeightPool = () => {
     let index = 0;
     for (let i = 0; i < BIAS_WEIGHT.length; i++) {
@@ -27,12 +30,9 @@ generateWeightPool();
 const CRED_WEIGHT = [0.6, 0.3, 0.1];
 
 function generateProfile(bias, cred, num, time) {
-    // distribute random time based on the avg time
-    let avg_time = [];
-    for (let i = 0; i < num; i++) {
-        avg_time[i] = time + getRandomFloat(-1, 1);
-        // console.log(avg_time[i]);
-    }
+
+    // instantiate blank template. profile is an array of media_intake
+    let profile = [];
 
     // shuffle the bias order based on the bias input
     let _bias = [];
@@ -76,36 +76,41 @@ function generateProfile(bias, cred, num, time) {
         reading_biases[i] = _bias[reading_biases[i]];
     }
 
-    // get articles
     let articles = [];
-    for (let i = 0; i < reading_biases.length; i ++){
+    let avg_time = [];
+
+    for (let i = 0; i < num; i++) {
         articles[i] = getArticle(reading_biases[i]);
+        avg_time[i] = time + getRandomFloat(-1, 1);
+        console.log(articles[i], " / ", avg_time[i], "min", " / ", );
     }
-    
-    console.log(articles);
+    // console.log(media_intake);
     // return articles;
 }
 
+let low_cred = 0.3;
+let mid_cred = 0.6;
+
 // get one random article
-function getArticle(bias){
+function getArticle(bias, cred) {
     let articles = [];
     let index = 0;
-
-    for (let source_id of Object.keys(news)){
+    
+    for (let source_id of Object.keys(news)) {
         let side = news[source_id].side;
 
-        if (bias === side){
+        if (bias === side) {
             articles.push(source_id);
         }
     }
     // console.log("articles: ", articles);
 
-    if (articles.length > 0){
-        index = getRandomInt(0, articles.length-1);
+    if (articles.length > 0) {
+        index = getRandomInt(0, articles.length - 1);
     } else {
         index = 0;
     }
-    
+
     return articles[index];
 }
 
