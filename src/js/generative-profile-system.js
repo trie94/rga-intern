@@ -1,14 +1,6 @@
 import news from '../data/news-source.json';
 import issues from '../data/issues.json';
 
-// template for each media_intake
-let media_intake = {
-    "source": "",
-    "topic": "politics",
-    "issue": "",
-    "time": "",
-};
-
 const BIAS = ["far_left", "left", "mid_left", "center", "mid_right", "right", "far_right"];
 const CREDIBILITY = ["low", "mid", "high"];
 
@@ -33,6 +25,14 @@ function generateProfile(bias, cred, num, time) {
 
     // instantiate blank template. profile is an array of media_intake
     let profile = [];
+
+    // template for each media_intake
+    let media_intake = {
+        "source": "",
+        "topic": "politics",
+        "issue": "",
+        "time": "",
+    };
 
     // shuffle the bias order based on the bias input
     let _bias = [];
@@ -78,32 +78,53 @@ function generateProfile(bias, cred, num, time) {
 
     let articles = [];
     let avg_time = [];
+    let temp_article = "";
 
     for (let i = 0; i < num; i++) {
-        articles[i] = getArticle(reading_biases[i]);
+        articles[i] = getArticle(reading_biases[i], cred);
         avg_time[i] = time + getRandomFloat(-1, 1);
-        console.log(articles[i], " / ", avg_time[i], "min", " / ", );
-    }
-    // console.log(media_intake);
-    // return articles;
-}
 
-let low_cred = 0.3;
-let mid_cred = 0.6;
+        if (articles[i] !== undefined) {
+            temp_article = articles[i].concat();
+        }
+    }
+
+    // if undefined, copy other value in the array
+    for (let i = 0; i < num; i++) {
+
+        if (articles[i] === undefined) {
+            articles[i] = temp_article;
+        }
+
+        console.log(articles[i], " / ", avg_time[i], "min");
+    }
+}
 
 // get one random article
 function getArticle(bias, cred) {
     let articles = [];
     let index = 0;
-    
+
     for (let source_id of Object.keys(news)) {
         let side = news[source_id].side;
+        let source_cred = news[source_id].credibility;
 
         if (bias === side) {
-            articles.push(source_id);
+            if (cred === "low") {
+                if (source_cred < 0.3) {
+                    articles.push(source_id);
+                }
+            } else if (cred === "mid") {
+                if (source_cred >= 0.3 && source_cred < 0.6) {
+                    articles.push(source_id);
+                }
+            } else if (cred === "high") {
+                if (source_cred >= 0.6) {
+                    articles.push(source_id);
+                }
+            }
         }
     }
-    // console.log("articles: ", articles);
 
     if (articles.length > 0) {
         index = getRandomInt(0, articles.length - 1);
@@ -114,7 +135,7 @@ function getArticle(bias, cred) {
     return articles[index];
 }
 
-let temp_person = generateProfile("left", 1, 20, 3);
+let temp_person = generateProfile("left", "mid", 20, 3);
 // console.log(temp_person);
 
 function getRandomFloat(min, max) {
