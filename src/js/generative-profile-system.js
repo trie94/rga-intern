@@ -18,21 +18,7 @@ const generateWeightPool = () => {
 }
 generateWeightPool();
 
-// generate credibility weight pool 0 is highest and 2 is lowest
-const CRED_WEIGHT = [0.6, 0.3, 0.1];
-
 function generateProfile(bias, cred, num, time) {
-
-    // instantiate blank template. profile is an array of media_intake
-    let profile = [];
-
-    // template for each media_intake
-    let media_intake = {
-        "source": "",
-        "topic": "politics",
-        "issue": "",
-        "time": "",
-    };
 
     // shuffle the bias order based on the bias input
     let _bias = [];
@@ -76,28 +62,38 @@ function generateProfile(bias, cred, num, time) {
         reading_biases[i] = _bias[reading_biases[i]];
     }
 
-    let articles = [];
+    // instantiate blank template. profile is an array of media_intake
+    let profile = [];
+
+    // profile components
+    let sources = [];
     let avg_time = [];
+    let issues = [];
     let temp_article = "";
+    let topic = "Politics";
 
     for (let i = 0; i < num; i++) {
-        articles[i] = getArticle(reading_biases[i], cred);
+        sources[i] = getArticle(reading_biases[i], cred);
         avg_time[i] = time + getRandomFloat(-1, 1);
+        issues[i] = getIssue();
 
-        if (articles[i] !== undefined) {
-            temp_article = articles[i].concat();
+        if (sources[i] !== undefined) {
+            temp_article = sources[i].concat();
         }
     }
 
-    // if undefined, copy other value in the array
-    for (let i = 0; i < num; i++) {
-
-        if (articles[i] === undefined) {
-            articles[i] = temp_article;
+    for (let i = 0; i < num; i++) {     
+        // if undefined, copy other value in the array
+        if (sources[i] === undefined) {
+            sources[i] = temp_article;
         }
+        // push each intake to the template object
 
-        console.log(articles[i], " / ", avg_time[i], "min");
+        let intake = new Media_intake(sources[i], topic, issues[i], avg_time[i]);
+        profile.push(intake);
     }
+
+    return profile;
 }
 
 // get one random article
@@ -135,8 +131,23 @@ function getArticle(bias, cred) {
     return articles[index];
 }
 
+// pick random issue
+function getIssue(){
+    let issue_list = issues.list;
+    let issue = issue_list[getRandomInt(0, issue_list.length-1)];
+    return issue;
+}
+
+// user's media intake object
+function Media_intake(source, topic, issue, time){
+    this.source = source;
+    this.topic = topic;
+    this.issue = issue;
+    this.time = time;
+}
+
 let temp_person = generateProfile("left", "mid", 20, 3);
-// console.log(temp_person);
+console.log(temp_person);
 
 function getRandomFloat(min, max) {
     return Math.round((Math.random() * (max - min) + min) * 10) * 0.1;
