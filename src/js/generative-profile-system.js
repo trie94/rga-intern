@@ -146,9 +146,6 @@ function Media_intake(source, topic, issue, time){
     this.time = time;
 }
 
-let temp_person = generateProfile("left", "mid", 20, 3);
-console.log(temp_person);
-
 function getRandomFloat(min, max) {
     return Math.round((Math.random() * (max - min) + min) * 10) * 0.1;
 }
@@ -156,4 +153,5 @@ function getRandomFloat(min, max) {
 function getRandomInt(min, max) {
     return Math.round((Math.random() * (max - min) + min));
 }
-// console.log(news);
+
+export { generateProfile };
