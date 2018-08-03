@@ -18,9 +18,12 @@
   },
   "homepage": "https://github.com/trie94/rga-intern#readme",
   "dependencies": {
+    "babel-preset-react": "^6.24.1",
     "d3": "^5.5.0",
     "express": "^4.16.3",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
