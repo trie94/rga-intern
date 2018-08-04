@@ -18,9 +18,9 @@
   },
   "homepage": "https://github.com/trie94/rga-intern#readme",
   "dependencies": {
-    "babel-preset-react": "^6.24.1",
     "d3": "^5.5.0",
     "express": "^4.16.3",
+    "papaparse": "^4.6.0",
     "path": "^0.12.7",
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
@@ -29,6 +29,7 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "css-hot-loader": "^1.4.0",
     "css-loader": "^1.0.0",
@@ -37,6 +38,7 @@
     "mini-css-extract-plugin": "^0.4.1",
     "webpack": "^4.16.2",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
+    "webpack-dev-server": "^3.1.5",
+    "csv-loader": "^3.0.2"
   }
 }

@@ -7,6 +7,8 @@ import BiasBar from '../components/bias-bar/bias-bar';
 import TimeSpent from '../components/time-spent/time-spent';
 import Topic from '../components/topic/topic';
 
+import './chart';
+
 if (module.hot) {
     module.hot.accept();
 }
