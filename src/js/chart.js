@@ -1,6 +1,6 @@
 import * as d3 from "d3";
 import './test.css';
-import data from '../assets/data.csv';
+import data from '../data/data.csv';
 
 // margin and radius
 let margin = {top: 20, right: 20, bottom: 20, left: 20},
@@ -8,11 +8,10 @@ let margin = {top: 20, right: 20, bottom: 20, left: 20},
     height = 500 - margin.top - margin.bottom,
     radius = width/2;
 
-
 // arc generator
 let arc = d3.arc()
     .outerRadius(radius - 10)
-    .innerRadius(0);
+    .innerRadius(radius - 140);
 
 let labelArc = d3.arc()
     .outerRadius(radius - 50)
@@ -29,15 +28,6 @@ let svg = d3.select("body").append("svg")
     .append("g")
     .attr("transform", "translate(" + width/2 + "," + height/2 + ")");
 
-// import data
-// d3.csv("./src/assets/data.csv", (error, data)=>{
-//     if(error) throw error;
-
-//     // parse the data
-//     data.foreach((d)=>{
-//         d.count = +d.count; // return numeric value
-//         d.fruit = d.fruit;
-//     });
 let color = d3.scaleOrdinal(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
     // append g elements (arc)
