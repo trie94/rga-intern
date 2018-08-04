@@ -8,9 +8,19 @@ import TimeSpent from '../components/time-spent/time-spent';
 import Topic from '../components/topic/topic';
 
 import './chart';
+import { platform } from 'os';
 
 if (module.hot) {
     module.hot.accept();
+    module.hot.dispose(()=>{
+        // const oldRootElem = document.getElementById('container');
+        const oldRootElem = document.querySelector('body');
+        const newRootElem = oldRootElem.cloneNode(false);
+        oldRootElem.parentNode.insertBefore(newRootElem, oldRootElem);
+        oldRootElem.parentNode.removeChild(oldRootElem);
+    });
+} else {
+    enableProdMode();
 }
 
 class Root extends React.Component {
@@ -21,7 +31,7 @@ class Root extends React.Component {
 
     render() {
         return (
-            <div>
+            <div id = 'container'>
                 <Header />
                 <Emoji />
                 <BiasBar />
