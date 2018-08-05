@@ -19,10 +19,12 @@
   "homepage": "https://github.com/trie94/rga-intern#readme",
   "dependencies": {
     "d3": "^5.5.0",
+    "d3-selection": "^1.3.0",
     "express": "^4.16.3",
     "papaparse": "^4.6.0",
     "path": "^0.12.7",
     "react": "^16.4.2",
+    "react-d3": "^0.4.0",
     "react-dom": "^16.4.2"
   },
   "devDependencies": {

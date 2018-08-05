@@ -1,6 +1,6 @@
 import React from 'react';
 import './time-spent.css';
-import './chart';
+import Chart from './chart';
 
 class TimeSpent extends React.Component {
     constructor(props) {
@@ -12,6 +12,7 @@ class TimeSpent extends React.Component {
         return (
             <div className='time-spent'>
                 Time
+                < Chart/>
             </div>
         );
     }
