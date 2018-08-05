@@ -6,14 +6,12 @@ import Header from '../components/header/header';
 import BiasBar from '../components/bias-bar/bias-bar';
 import TimeSpent from '../components/time-spent/time-spent';
 import Topic from '../components/topic/topic';
-
-import './chart';
-import { platform } from 'os';
+import Footer from '../components/footer/footer';
+import '../style.css';
 
 if (module.hot) {
     module.hot.accept();
     module.hot.dispose(()=>{
-        // const oldRootElem = document.getElementById('container');
         const oldRootElem = document.querySelector('body');
         const newRootElem = oldRootElem.cloneNode(false);
         oldRootElem.parentNode.insertBefore(newRootElem, oldRootElem);
@@ -37,6 +35,7 @@ class Root extends React.Component {
                 <BiasBar />
                 <TimeSpent />
                 <Topic />
+                <Footer/>
             </div>
         );
     }

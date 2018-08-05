@@ -1,8 +1,7 @@
 import React from 'react';
-import './time-spent.css';
-import './chart';
+import './footer.css';
 
-class TimeSpent extends React.Component {
+class Footer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -10,11 +9,11 @@ class TimeSpent extends React.Component {
 
     render() {
         return (
-            <div className='time-spent'>
-                Time
+            <div className='footer'>
+                Footer
             </div>
         );
     }
 }
 
-export default TimeSpent;
+export default Footer;
