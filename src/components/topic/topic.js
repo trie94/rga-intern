@@ -1,5 +1,6 @@
 import React from 'react';
 import './topic.css';
+import KeywordBubble from './keywords';
 
 class Topic extends React.Component {
     constructor(props) {
@@ -11,6 +12,7 @@ class Topic extends React.Component {
         return (
             <div className='topic'>
                 Topic
+                <KeywordBubble/>
             </div>
         );
     }

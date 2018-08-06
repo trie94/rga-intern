@@ -1,6 +1,7 @@
 // import './report';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Sidebar from '../components/sidebar/sidebar';
 import Emoji from '../components/emoji/emoji';
 import Header from '../components/header/header';
 import BiasBar from '../components/bias-bar/bias-bar';
@@ -31,6 +32,7 @@ class Root extends React.Component {
         return (
             <div id = 'container'>
                 <Header />
+                <Sidebar />
                 <Emoji />
                 <BiasBar />
                 <TimeSpent />
