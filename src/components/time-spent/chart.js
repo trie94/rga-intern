@@ -2,9 +2,10 @@ import React from 'react';
 import './chart.css';
 import { Doughnut } from 'react-chartjs-2';
 import data from '../../data/data.json';
+import news from '../../data/news-source.json';
 import { generateProfile } from '../../js/generative-profile-system';
 
-// const COLORS = ["#e91e63", "#ff4136", "#b10dc9", "#06a6f3", "#fe3f38", "#3b40f0", "#b10dc9"];
+const COLORS = ["#354DF1", "#128DF3", "#476CE3", "#AE10CA", "#D2178E", "#ED255B", "#FA3841"];
 let profile_data = generateProfile("left", "mid", 20, 5);
 let top1_source, top2_source, top3_source, top4_source;
 let top1_time = 0, top2_time = 0, top3_time = 0, top4_time = 0;
@@ -85,11 +86,50 @@ function getRank(arr) {
         top3_source = arr[2].temp2_source;
         top3_time = arr[2].temp2_time;
     }
-
-    console.log("top1_source: ", top1_source);
-    console.log("top2_source: ", top2_source);
-    console.log("top3_source: ", top3_source);
 };
+
+function getColor(source){
+    let color;
+
+    for (let source_id of Object.keys(news)) {
+        let name = news[source_id].name;
+        let side = news[source_id].side;
+
+        if (source === source_id) {
+
+            switch(side){
+                case "far_left":
+                color = COLORS[0];
+                break;
+
+                case "left":
+                color = COLORS[1];
+                break;
+
+                case "mid_left":
+                color = COLORS[2];
+                break;
+
+                case "center":
+                color = COLORS[3];
+                break;
+
+                case "mid_right":
+                color = COLORS[4];
+                break;
+
+                case "right":
+                color = COLORS[5];
+                break;
+
+                case "far_right":
+                color = COLORS[6];
+                break;
+            }
+        }
+    }
+    return color;
+}
 
 getSources();
 
@@ -104,8 +144,8 @@ class Chart extends React.Component {
             labels: [this.labels[0], this.labels[1], this.labels[2]],
             datasets: [{
                 data: [this.data[0], this.data[1], this.data[2]],
-                backgroundColor: ["#e91e63", "#ff4136", "#b10dc9", "#06a6f3"],
-                hoverBackgroundColor: ["#e91e63", "#ff4136", "#b10dc9", "#06a6f3"]
+                backgroundColor: [getColor(this.labels[0]), getColor(this.labels[1]), getColor(this.labels[2])],
+                hoverBackgroundColor: [getColor(this.labels[0]), getColor(this.labels[1]), getColor(this.labels[2])]
             }]
         }
     }
