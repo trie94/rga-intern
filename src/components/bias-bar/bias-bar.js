@@ -9,7 +9,7 @@ class BiasBar extends React.Component {
 
     render() {
         return (
-            <div className='bias-bar'>
+            <div className="bias-bar" className="component-container">
                 Bias
             </div>
         );

@@ -10,7 +10,7 @@ class Topic extends React.Component {
 
     render() {
         return (
-            <div className='topic'>
+            <div className='topic component-container'>
                 Topic
                 <KeywordBubble/>
             </div>

@@ -10,7 +10,29 @@ body{
     margin: 0;
 }
 
-#container{
-    margin-left: 20%;
-    padding-left: 2%;
+#app{
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-column {
+    display: flex;
+    flex: 1 1 auto;
+    width: 100%;
+}
+.app-column.left {
+    background-color: #bada55;
+    /* width: 20%; */
+}
+.app-column.right {
+    /* width: 80%; */
+    flex-direction: column;
+}
+
+/* class for each component container */
+.component-container {
+    background-color: #fff;
+    margin: 3px;
+    display: flex;
 }

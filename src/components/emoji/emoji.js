@@ -9,7 +9,7 @@ class Emoji extends React.Component {
 
     render() {
         return (
-            <div className='emoji'>
+            <div className="emoji" className="component-container">
                 EMOJI
             </div>
         );

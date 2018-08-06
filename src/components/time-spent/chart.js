@@ -160,8 +160,10 @@ class Chart extends React.Component {
 
     render() {
         return (
-            <div id="chart-container">
-                <Doughnut data={this.data} options={this.options} />
+            <div id="chart-container" className="component-container">
+                <div className="chart">
+                    <Doughnut data={this.data} options={this.options} />
+                </div>
             </div>
         );
     }

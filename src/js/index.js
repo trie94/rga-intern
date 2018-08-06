@@ -30,14 +30,18 @@ class Root extends React.Component {
 
     render() {
         return (
-            <div id = 'container'>
-                <Header />
-                <Sidebar />
-                <Emoji />
-                <BiasBar />
-                <TimeSpent />
-                <Topic />
-                <Footer/>
+            <div id = 'app'>
+                <div className="app-column left">
+                    <Sidebar />
+                </div>
+                <div className="app-column right">
+                    <Header />
+                    <Emoji />
+                    <BiasBar />
+                    <TimeSpent />
+                    <Topic />
+                    <Footer/>
+                </div>
             </div>
         );
     }

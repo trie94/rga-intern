@@ -10,8 +10,7 @@ class TimeSpent extends React.Component {
 
     render() {
         return (
-            <div className='time-spent'>
-                Time
+            <div className="time-spent" className="component-container">
                 < Chart/>
             </div>
         );

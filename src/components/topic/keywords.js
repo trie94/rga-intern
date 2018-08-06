@@ -10,7 +10,7 @@ class KeywordBubble extends React.Component {
 
     render() {
         return (
-            <div className='keywords'>
+            <div className='keywords component-container'>
             Keyword bubble
             </div>
         );

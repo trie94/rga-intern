@@ -1,12 +1,17 @@
 .sidebar {
     height: 100%;
-    width: 20%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    border: 3px black solid;
-    overflow-x: hidden;
+    width: 0;
+    /* position: fixed; */
+    /* z-index: 1; */
+    /* top: 0; */
+    /* left: 0; */
+    /* background-color: #fff; */
+    /* margin: 2px; */
+    /* border: 3px black solid; */
+    /* overflow-x: hidden; */
     padding-top: 20px;
     text-align: center;
+}
+.sidebar.open {
+    width: 250px;
 }
