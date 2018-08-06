@@ -15,23 +15,37 @@ console.log(profile_data);
 // get top 4 sources
 
 top1_source = profile_data[0].source;
-let top_sources = [top1_source];
+let top_sources = [];
 
-for (let i = 1; i < profile_data.length; i++){
-    for (let j = 0; j < top_sources.length; j++){
-        if (profile_data[i].source !== top_sources[j]){
-            top_sources.push(profile_data[i].source);
-            console.log("i: ", i, "/ j: ", j);
-        }
-        break;
-    }
+for (let i = 0; i < profile_data.length; i++) {
+    top_sources[i] = profile_data[i].source;
 }
 
-console.log("top sources: ", top_sources);
-top1_source = top_sources[0];
-top2_source = top_sources[1];
-top3_source = top_sources[2];
-top4_source = top_sources[3];
+function removeDuplicates(arr) {
+    let unique_array = arr.filter(function (elem, index, self) {
+        return index == self.indexOf(elem);
+    });
+    return unique_array;
+}
+
+function filterSources(arr) {
+    if(top_sources[0] !== null || top_sources[0] !== undefined){
+        top1_source = top_sources[0];
+    }
+    if(top_sources[1] !== null || top_sources[1] !== undefined){
+        top2_source = top_sources[1];
+    }
+    if(top_sources[2] !== null || top_sources[2] !== undefined){
+        top3_source = top_sources[2];
+    }
+    if(top_sources[3] !== null || top_sources[3] !== undefined){
+        top4_source = top_sources[3];
+    }
+};
+
+removeDuplicates(top_sources);
+filterSources(top_sources);
+console.log(removeDuplicates(top_sources));
 
 // get time
 for (let key of Object.keys(profile_data)) {
