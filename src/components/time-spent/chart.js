@@ -2,28 +2,73 @@ import React from 'react';
 import './chart.css';
 import { Doughnut } from 'react-chartjs-2';
 import data from '../../data/data.json';
+import { generateProfile } from '../../js/generative-profile-system';
 
 // const COLORS = ["#e91e63", "#ff4136", "#b10dc9", "#06a6f3", "#fe3f38", "#3b40f0", "#b10dc9"];
+let profile_data = generateProfile("left", "mid", 20, 5);
+let top1_source, top2_source, top3_source, top4_source;
+let top1_time = 0, top2_time = 0, top3_time = 0, top4_time = 0;
+
+console.log(profile_data);
+
+// profile_data.map((index) => { console.log(index.source) });
+// get top 4 sources
+
+top1_source = profile_data[0].source;
+let top_sources = [top1_source];
+
+for (let i = 1; i < profile_data.length; i++){
+    for (let j = 0; j < top_sources.length; j++){
+        if (profile_data[i].source !== top_sources[j]){
+            top_sources.push(profile_data[i].source);
+            console.log("i: ", i, "/ j: ", j);
+        }
+        break;
+    }
+}
+
+console.log("top sources: ", top_sources);
+top1_source = top_sources[0];
+top2_source = top_sources[1];
+top3_source = top_sources[2];
+top4_source = top_sources[3];
+
+// get time
+for (let key of Object.keys(profile_data)) {
+    if (profile_data[key].source === top1_source) {
+        top1_time += profile_data[key].time;
+    } else if (profile_data[key].source === top2_source) {
+        top2_time += profile_data[key].time;
+    } else if (profile_data[key].source === top3_source) {
+        top3_time += profile_data[key].time;
+    } else if (profile_data[key].source === top4_source) {
+        top4_time += profile_data[key].time;
+    }
+}
+
+console.log(top1_time);
 
 class Chart extends React.Component {
     constructor(props) {
         super(props);
-        this.labels = [data.source1, data.source2, data.source3, data.source4];
-        this.data = [];
+        this.labels = [top1_source, top2_source, top3_source, top4_source];
+        this.data = [top1_time, top2_time, top3_time, top4_time];
         this.colors = [];
-        
+
         this.sample_data = {
             labels: [this.labels[0], this.labels[1], this.labels[2], this.labels[3]],
-            datasets: [{data:[300, 50, 100, 20],
-            backgroundColor: ["#e91e63", "#ff4136", "#b10dc9", "#06a6f3"],
-            hoverBackgroundColor:["#e91e63", "#ff4136", "#b10dc9", "#06a6f3"]}]
+            datasets: [{
+                data: [this.data[0], this.data[1], this.data[2], this.data[3]],
+                backgroundColor: ["#e91e63", "#ff4136", "#b10dc9", "#06a6f3"],
+                hoverBackgroundColor: ["#e91e63", "#ff4136", "#b10dc9", "#06a6f3"]
+            }]
         }
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div id="chart-container">
-            <Doughnut data={this.sample_data} />
+                <Doughnut data={this.sample_data} />
             </div>
         );
     }
