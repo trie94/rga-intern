@@ -11,9 +11,9 @@ const COLORS = ["#e91e63", "#ff4136", "#b10dc9", "#06a6f3", "#fe3f38", "#3b40f0"
 class Chart extends React.Component {
     constructor(props) {
         super(props);
-        this.sample = [{ name: 'Group A', value: 10 }, { name: 'Group B', value: 5 },
-        { name: 'Group C', value: 1 }, { name: 'Group D', value: 2 },
-        { name: 'Group E', value: 3 }, { name: 'Group F', value: 8 }]
+        this.sample = [{ name: 'Group A', value: 100 }, { name: 'Group B', value: 50 },
+        { name: 'Group C', value: 10 }, { name: 'Group D', value: 200 },
+        { name: 'Group E', value: 30 }, { name: 'Group F', value: 80 }]
         this.dataKey = null;
     }
 
@@ -22,17 +22,13 @@ class Chart extends React.Component {
             <div id="chart-container">
                 <PieChart width={window.innerWidth} height={400}>
                     <Pie
-                        dataKey="name"
-                        isAnimationActive={true} data={this.sample}
+                        isAnimationActive={true} data={this.sample} fill="#8884d8"
                         cx={window.innerWidth * 0.5} cy={200} innerRadius={40} outerRadius={80}
                         label paddingAngle={1}>
                         {
-                            data.map((index) => <Cell key={`cell-${index}`} fill={COLORS[index]} key={index} dataKey={this.sample[index]} />)
+                            data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index]} key={index} dataKey={this.sample[index]} />)
                         }
                     </Pie>
-                    <PieChart width={500} height={300} data={this.sample}>
-                        <Pie data={this.sample} dataKey="name" fill="#8884d8" label />
-                    </PieChart>
                     <Tooltip />
                 </PieChart>
             </div>
