@@ -24,8 +24,8 @@
     "papaparse": "^4.6.0",
     "path": "^0.12.7",
     "react": "^16.4.2",
-    "react-d3": "^0.4.0",
-    "react-dom": "^16.4.2"
+    "react-dom": "^16.4.2",
+    "recharts": "^1.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

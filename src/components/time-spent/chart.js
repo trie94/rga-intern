@@ -4,6 +4,44 @@ import React from 'react';
 import './chart.css';
 import data from '../../data/data.csv';
 
+import { PieChart, Pie, Legend, Tooltip, Cell } from 'recharts';
+
+const COLORS = ["#e91e63", "#ff4136", "#b10dc9", "#06a6f3", "#fe3f38", "#3b40f0", "#b10dc9"];
+
+class Chart extends React.Component {
+    constructor(props) {
+        super(props);
+        this.sample = [{ name: 'Group A', value: 10 }, { name: 'Group B', value: 5 },
+        { name: 'Group C', value: 1 }, { name: 'Group D', value: 2 },
+        { name: 'Group E', value: 3 }, { name: 'Group F', value: 8 }]
+        this.dataKey = null;
+    }
+
+    render() {
+        return (
+            <div id="chart-container">
+                <PieChart width={window.innerWidth} height={400}>
+                    <Pie
+                        dataKey="name"
+                        isAnimationActive={true} data={this.sample}
+                        cx={window.innerWidth * 0.5} cy={200} innerRadius={40} outerRadius={80}
+                        label paddingAngle={1}>
+                        {
+                            data.map((index) => <Cell key={`cell-${index}`} fill={COLORS[index]} key={index} dataKey={this.sample[index]} />)
+                        }
+                    </Pie>
+                    <PieChart width={500} height={300} data={this.sample}>
+                        <Pie data={this.sample} dataKey="name" fill="#8884d8" label />
+                    </PieChart>
+                    <Tooltip />
+                </PieChart>
+            </div>
+        );
+    }
+}
+
+export default Chart;
+
 // function getSvg() {
 //     let window_width = window.innerWidth;
 //     let window_height = window.innerHeight;
@@ -57,20 +95,3 @@ import data from '../../data/data.csv';
 //         .attr("dy", ".35em")
 //         .text((d) => { return d.data.source; });
 // }
-
-class Chart extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            chart: "hi",
-        };
-    }
-
-    render() {
-        return (
-            <div className='chart'>Chart: {this.state.chart}</div>
-        );
-    }
-}
-
-export default Chart;
