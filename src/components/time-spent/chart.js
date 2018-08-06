@@ -55,21 +55,23 @@ function reorderSources(arr) {
         }
 
         if (temp_source !== null && temp_time !== 0) {
-            reordered_arr.push({temp2_source, temp2_time});
+            temp2_time = Math.round(temp2_time * 10);
+            temp2_time *= 0.1;
+            reordered_arr.push({ temp2_source, temp2_time });
         }
     }
 
     for (let j = 0; j < reordered_arr.length - 1; j++) {
         for (let i = 0; i < reordered_arr.length - 1; i++) {
-            if (reordered_arr[i].temp2_time < reordered_arr[i+1].temp2_time) {
-                let temp = reordered_arr[i+1].temp2_time;
-                reordered_arr[i+1].temp2_time = reordered_arr[i].temp2_time;
+            if (reordered_arr[i].temp2_time < reordered_arr[i + 1].temp2_time) {
+                let temp = reordered_arr[i + 1].temp2_time;
+                reordered_arr[i + 1].temp2_time = reordered_arr[i].temp2_time;
                 reordered_arr[i].temp2_time = temp;
             }
         }
     }
 
-    console.log("hey hey hey", reordered_arr);
+    // console.log(reordered_arr);
     return reordered_arr;
 }
 
@@ -88,7 +90,7 @@ function getRank(arr) {
     }
 };
 
-function getColor(source){
+function getColor(source) {
     let color;
 
     for (let source_id of Object.keys(news)) {
@@ -97,34 +99,34 @@ function getColor(source){
 
         if (source === source_id) {
 
-            switch(side){
+            switch (side) {
                 case "far_left":
-                color = COLORS[0];
-                break;
+                    color = COLORS[0];
+                    break;
 
                 case "left":
-                color = COLORS[1];
-                break;
+                    color = COLORS[1];
+                    break;
 
                 case "mid_left":
-                color = COLORS[2];
-                break;
+                    color = COLORS[2];
+                    break;
 
                 case "center":
-                color = COLORS[3];
-                break;
+                    color = COLORS[3];
+                    break;
 
                 case "mid_right":
-                color = COLORS[4];
-                break;
+                    color = COLORS[4];
+                    break;
 
                 case "right":
-                color = COLORS[5];
-                break;
+                    color = COLORS[5];
+                    break;
 
                 case "far_right":
-                color = COLORS[6];
-                break;
+                    color = COLORS[6];
+                    break;
             }
         }
     }
@@ -138,9 +140,8 @@ class Chart extends React.Component {
         super(props);
         this.labels = [top1_source, top2_source, top3_source];
         this.data = [top1_time, top2_time, top3_time];
-        this.colors = [];
 
-        this.sample_data = {
+        this.data = {
             labels: [this.labels[0], this.labels[1], this.labels[2]],
             datasets: [{
                 data: [this.data[0], this.data[1], this.data[2]],
@@ -148,12 +149,19 @@ class Chart extends React.Component {
                 hoverBackgroundColor: [getColor(this.labels[0]), getColor(this.labels[1]), getColor(this.labels[2])]
             }]
         }
+
+        this.options = {
+            legend: {
+                display: true,
+                position: 'bottom'
+            }
+        }
     }
 
     render() {
         return (
             <div id="chart-container">
-                <Doughnut data={this.sample_data} />
+                <Doughnut data={this.data} options={this.options} />
             </div>
         );
     }
