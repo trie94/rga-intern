@@ -9,8 +9,6 @@ import { bias, user, score } from '../../data/user-data';
 
 let emoji_colors = ["#354DF1", "#128DF3", "#476CE3", "#AE10CA", "#D2178E", "#ED255B", "#FA3841"];
 
-console.log(bias);
-console.log(score);
 function getEmoji(score) {
 
     let emoji_index = 0;
@@ -74,7 +72,7 @@ class Emoji extends React.Component {
 
         return (
             <div className="emoji component-container">
-                <p className="title">OVERALL RATING</p>
+                <p className="emoji-title">OVERALL RATING</p>
                 <div className="emoji-color" style={colorObj}>
                     <img className="emoji-img" src={this.emoji[this.emoji_index]}></img>
                 </div>

@@ -10,6 +10,10 @@
     width: auto;
     align-items: center;
     justify-content: center;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    background-color: #fff;
 }
 
 .below-bias{
@@ -24,7 +28,7 @@
 .cred-level{
     height: 100%;
     width: 50%;
-    /* margin: 0 !important; */
+    margin: 6px 3px 0 0 !important;
     align-items: center;
     justify-content: center;
 }
@@ -32,8 +36,18 @@
 .total-num{
     height: 100%;
     width: 50%;
-    /* margin: 0 !important; */
+    margin: 6px 0 0 3px !important;
     align-items: center;
+    justify-content: center;
+}
+
+.bar-container{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    top: 5%;
     justify-content: center;
 }
 
@@ -41,4 +55,57 @@
     position: relative;
     width: 80%;
     height: auto;
+}
+
+.labels-container{
+    position: relative;
+    width: 80%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 15%;
+}
+
+.bar-labels{
+    position: relative;
+    top: 25%;
+    width: 6%;
+    height: auto;
+}
+
+.bar-emoji{
+    z-index: 2;
+    position: relative;
+    width: 7%;
+    height: auto;
+}
+
+.bar-emojis{
+    position: absolute;
+    width: 78%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bias-title{
+    position: absolute;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bolder;
+    /* margin: 10%; */
+    text-align: center;
+    margin-top: 5%;
+}
+
+.black{
+    position: relative;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    /* margin: 3px; */
+    display: flex;
+    flex-direction: column;
 }

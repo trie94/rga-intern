@@ -30,6 +30,7 @@ body{
 
 .row {
     display: flex;
+    height: 40%;
 }
 
 /* class for each component container */

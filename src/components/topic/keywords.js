@@ -46,7 +46,7 @@ function reorderIssues(arr) {
         }
 
         if (temp_issue !== null && temp_time !== 0) {
-            console.log(temp2_time);
+            temp2_time = ((Math.round(temp2_time * 10)) * 0.1).toFixed(2);
             reordered_arr.push({ temp2_issue, temp2_time });
         }
     }
