@@ -6,7 +6,7 @@ import bar_center from '../../assets/bar_center.png';
 import bar_right from '../../assets/bar_right.png';
 import bar_emoji from '../../assets/bar_emoji.png';
 
-import { bias, user, score } from '../../data/user-data';
+import { bias, cred, totalNum, user, score } from '../../data/user-data';
 
 function getPosition(bias){
     let position = [];
@@ -55,8 +55,10 @@ class BiasBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
+        this.cred = cred;
+        this.total = totalNum;
     }
-    
+
     render() {
 
         return (
@@ -84,10 +86,12 @@ class BiasBar extends React.Component {
                     </div>
                     <div className="below-bias">
                         <div className="cred-level component-container">
-                            cred level
+                            <p className="bias-title">AVERAGE CREDIBILITY</p>
+                                <p className="value">{this.cred}</p>
                     </div>
                         <div className="total-num component-container">
-                            total num
+                            <p className="bias-title">NUMBER OF ARTICLES READ</p>
+                            <p className="value">{this.total}</p>
                     </div>
                     </div>
                 </div>

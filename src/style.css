@@ -38,4 +38,5 @@ body{
     background-color: #fff;
     margin: 3px;
     display: flex;
+    overflow: hidden;
 }
