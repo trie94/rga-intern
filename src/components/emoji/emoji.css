@@ -1,15 +1,15 @@
 .emoji {
-    padding: 5%;
     margin: 0;
     flex-direction: column;
     align-items: center;
+    width: 50%;
 }
 .emoji-color{
     position: relative;
     min-width: 200px;
-    width: 30vw;
+    width: 30%;
     min-height: 200px;
-    height: 30vw;
+    height: 30%;
     margin: 5% 0;
     /* overflow: hidden; */
 }

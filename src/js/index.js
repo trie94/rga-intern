@@ -31,13 +31,12 @@ class Root extends React.Component {
     render() {
         return (
             <div id = 'app'>
-                <div className="app-column left">
-                    <Sidebar />
-                </div>
-                <div className="app-column right">
+                <div className="app-container">
                     <Header />
-                    <Emoji />
-                    <BiasBar />
+                    <div className="row">
+                        <Emoji />
+                        <BiasBar />
+                    </div>
                     <TimeSpent />
                     <Topic />
                     <Footer/>

@@ -76,11 +76,9 @@ class KeywordBubble extends React.Component {
 
     render() {
         return (
-            <div className="keywords component-container">
+            <div className="keywords">
                 <div className="bubblechart">
-                    <svg>
-                        <circle cx={50} cy={50} r={this.radius[0]} fill="red" />
-                    </svg>
+                    keyword bubbles
                 </div>
             </div>
         );
