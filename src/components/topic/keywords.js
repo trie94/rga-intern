@@ -1,4 +1,5 @@
 import React from 'react';
+import './keywords.css';
 
 class KeywordBubble extends React.Component {
     constructor(props) {
@@ -10,8 +11,10 @@ class KeywordBubble extends React.Component {
 
     render() {
         return (
-            <div className='keywords component-container'>
-            Keyword bubble
+            <div className="keywords component-container">
+                <div className="bubblechart">
+                    Keyword bubble
+            </div>
             </div>
         );
     }

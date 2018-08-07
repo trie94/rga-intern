@@ -1,8 +1,4 @@
 import { extractComponent, getEachMediaScore } from './scoring-system';
-import { generateProfile } from './generative-profile-system';
-
-// store user profile data and score
-let temp_profile = generateProfile("center", "high", 10, 5);
 
 function getAvgScore(profile) {
 
@@ -48,4 +44,4 @@ function getReport(profile){
     }
 }
 
-getReport(temp_profile);
+export { getAvgScore, getTotalTime, getReport };

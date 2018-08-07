@@ -1,18 +1,14 @@
 import React from 'react';
 import './chart.css';
 import { Doughnut } from 'react-chartjs-2';
-import data from '../../data/data.json';
 import news from '../../data/news-source.json';
-import { generateProfile } from '../../js/generative-profile-system';
+import { user } from '../../data/user-data';
 
 const COLORS = ["#354DF1", "#128DF3", "#476CE3", "#AE10CA", "#D2178E", "#ED255B", "#FA3841"];
-let profile_data = generateProfile("left", "mid", 20, 5);
-let top1_source, top2_source, top3_source, top4_source;
-let top1_time = 0, top2_time = 0, top3_time = 0, top4_time = 0;
-
-// console.log(profile_data);
-
-// profile_data.map((index) => { console.log(index.source) });
+let profile_data = user;
+let top1_source, top2_source, top3_source;
+let top1_time = 0, top2_time = 0, top3_time = 0;
+let colors = COLORS;
 
 let top_sources = [];
 

@@ -1,2 +1,29 @@
 .emoji {
+    padding: 5%;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+}
+.emoji-color{
+    position: relative;
+    min-width: 200px;
+    width: 50vw;
+    min-height: 200px;
+    height: 50vw;
+    margin: 5% 0;
+    /* overflow: hidden; */
+}
+.emoji-img{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.title{
+    position: relative;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bolder;
+    /* margin: 10%; */
+    text-align: center;
 }

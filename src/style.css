@@ -1,3 +1,7 @@
+*{
+    box-sizing: content-box;
+}
+
 html{
     font-family: "PT Sans", sans-serif
 }
