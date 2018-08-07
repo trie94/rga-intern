@@ -7,9 +7,9 @@
 .emoji-color{
     position: relative;
     min-width: 200px;
-    width: 50vw;
+    width: 30vw;
     min-height: 200px;
-    height: 50vw;
+    height: 30vw;
     margin: 5% 0;
     /* overflow: hidden; */
 }

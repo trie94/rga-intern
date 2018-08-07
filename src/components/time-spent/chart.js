@@ -8,7 +8,6 @@ const COLORS = ["#354DF1", "#128DF3", "#476CE3", "#AE10CA", "#D2178E", "#ED255B"
 let profile_data = user;
 let top1_source, top2_source, top3_source;
 let top1_time = 0, top2_time = 0, top3_time = 0;
-let colors = COLORS;
 
 let top_sources = [];
 
@@ -51,8 +50,7 @@ function reorderSources(arr) {
         }
 
         if (temp_source !== null && temp_time !== 0) {
-            temp2_time = Math.round(temp2_time * 10);
-            temp2_time *= 0.1;
+            temp2_time = (Math.round(temp2_time * 10)) * 0.1;
             reordered_arr.push({ temp2_source, temp2_time });
         }
     }
