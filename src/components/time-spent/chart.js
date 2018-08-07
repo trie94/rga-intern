@@ -10,6 +10,7 @@ let top1_source, top2_source, top3_source;
 let top1_time = 0, top2_time = 0, top3_time = 0;
 
 let top_sources = [];
+console.log(user);
 
 // get top 3 sources
 function getSources() {
@@ -29,6 +30,8 @@ function reorderSources(arr) {
     let temp2_time = 0;
     let temp_source = null;
     let temp2_source = null;
+    let temp_issue;
+    let temp2_issues = [];
 
     let reordered_arr = [];
 
@@ -36,6 +39,7 @@ function reorderSources(arr) {
 
         temp_source = null;
         temp_time = 0;
+        temp2_issues = [];
 
         for (let j = 0; j < profile_data.length; j++) {
 
@@ -46,12 +50,14 @@ function reorderSources(arr) {
                 // console.log(temp_source, temp_time);
                 temp2_time = temp_time;
                 temp2_source = temp_source.concat();
+                temp_issue = profile_data[j].issue.concat();
+                temp2_issues.push(temp_issue);
             }
         }
 
         if (temp_source !== null && temp_time !== 0) {
-            temp2_time = ((Math.round(temp2_time * 10)) * 0.1).toFixed(2);
-            reordered_arr.push({ temp2_source, temp2_time });
+            temp2_time = ((Math.round(temp2_time * 10)) * 0.1).toFixed(1);
+            reordered_arr.push({ temp2_source, temp2_time, temp2_issues });
         }
     }
 
@@ -65,7 +71,7 @@ function reorderSources(arr) {
         }
     }
 
-    // console.log(reordered_arr);
+    console.log(reordered_arr);
     return reordered_arr;
 }
 
@@ -127,22 +133,49 @@ function getColor(source) {
     return color;
 }
 
+function getTotalTime(){
+    let total_time = 0;
+    let hour = 0;
+    let min = 0;
+    let time = [];
+
+    for(let i = 0; i <profile_data.length; i++){
+        total_time += profile_data[i].time;
+    }
+
+    if (total_time >= 60){
+        hour = Math.round(total_time / 60);
+        min = Math.round(total_time % 60);
+    } else {
+        hour = 0;
+        min = total_time;
+    }
+
+    time[0] = hour;
+    time[1] = min;
+    return time;
+}
+
 getSources();
+getTotalTime();
 
 class Chart extends React.Component {
     constructor(props) {
         super(props);
         this.labels = [top1_source, top2_source, top3_source];
-        this.data = [top1_time, top2_time, top3_time];
+        this.time = [top1_time, top2_time, top3_time];
 
         this.data = {
             labels: [this.labels[0], this.labels[1], this.labels[2]],
             datasets: [{
-                data: [this.data[0], this.data[1], this.data[2]],
+                data: [this.time[0], this.time[1], this.time[2]],
                 backgroundColor: [getColor(this.labels[0]), getColor(this.labels[1]), getColor(this.labels[2])],
                 hoverBackgroundColor: [getColor(this.labels[0]), getColor(this.labels[1]), getColor(this.labels[2])]
             }]
         }
+
+        this.hour = getTotalTime()[0];
+        this.min = getTotalTime()[1];
 
         this.options = {
             legend: {
@@ -157,6 +190,9 @@ class Chart extends React.Component {
             <div id="chart-container" className="component-container">
                 <div className="chart">
                     <Doughnut data={this.data} options={this.options} />
+                </div>
+                <div className="summary">
+                    <p className="titles">TOTAL: {this.hour} HOURS {this.min} MINUTES</p>
                 </div>
             </div>
         );

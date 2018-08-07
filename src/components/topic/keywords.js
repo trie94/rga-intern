@@ -7,8 +7,6 @@ const COLORS = ["#354DF1", "#128DF3", "#476CE3", "#AE10CA", "#D2178E", "#ED255B"
 let profile_data = user;
 let issues = [];
 
-console.log(user);
-
 function getIssues() {
     for (let i = 0; i < profile_data.length; i++) {
         issues[i] = profile_data[i].issue;
@@ -60,8 +58,6 @@ function reorderIssues(arr) {
             }
         }
     }
-
-    console.log("for the bubble chart: ", reordered_arr);
     return reordered_arr;
 }
 

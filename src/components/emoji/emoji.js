@@ -5,6 +5,7 @@ import high from '../../assets/high_emoji.png';
 import mid from '../../assets/mid_emoji.png';
 import low from '../../assets/low_emoji.png';
 import lowest from '../../assets/lowest_emoji.png';
+import emoji_scores from '../../assets/emoji_scores.png';
 import { bias, user, score } from '../../data/user-data';
 
 let emoji_colors = ["#354DF1", "#128DF3", "#476CE3", "#AE10CA", "#D2178E", "#ED255B", "#FA3841"];
@@ -60,9 +61,11 @@ class Emoji extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
+        this.emoji_scores = emoji_scores;
         this.emoji = [lowest, low, mid, high, highest];
         this.color = getColor(bias);
         this.emoji_index = getEmoji(score);
+        this.score = score;
     }
 
     render() {
@@ -72,10 +75,12 @@ class Emoji extends React.Component {
 
         return (
             <div className="emoji component-container">
-                <p className="emoji-title">OVERALL RATING</p>
+                <p className="titles">OVERALL RATING</p>
+                <p>Your score is {this.score} our of 100.</p>
                 <div className="emoji-color" style={colorObj}>
                     <img className="emoji-img" src={this.emoji[this.emoji_index]}></img>
                 </div>
+                <img className="emoji-scores-img" src={this.emoji_scores}></img>
             </div>
         );
     }

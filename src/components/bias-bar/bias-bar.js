@@ -64,7 +64,7 @@ class BiasBar extends React.Component {
         return (
             <div className="bias-section component-container">
                 <div className="black">
-                    <p className="bias-title">BIAS RATING</p>
+                    <p className="titles">BIAS RATING</p>
                     <div className="bias-bar">
                         <div className="bar-container">
                             <img src={bias_bar} className="bar-img" />
@@ -86,12 +86,16 @@ class BiasBar extends React.Component {
                     </div>
                     <div className="below-bias">
                         <div className="cred-level component-container">
-                            <p className="bias-title">AVERAGE CREDIBILITY</p>
+                            <p className="titles">AVERAGE CREDIBILITY</p>
+                            <div className="values">
                                 <p className="value">{this.cred}</p>
+                                </div>
                     </div>
                         <div className="total-num component-container">
-                            <p className="bias-title">NUMBER OF ARTICLES READ</p>
+                            <p className="titles">NUMBER OF ARTICLES READ</p>
+                            <div className="values">
                             <p className="value">{this.total}</p>
+                            </div>
                     </div>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 *{
     box-sizing: content-box;
+    margin: 0;
 }
 
 html{
@@ -19,6 +20,11 @@ body{
     justify-content: center;
     background-color: #fff;
 }
+@media screen and (max-width: 768px) {
+    #app {
+        border: 5px dashed red;
+    }
+}
 
 .app-container {
     display: flex;
@@ -31,6 +37,7 @@ body{
 .row {
     display: flex;
     height: 40%;
+    min-height: 300px;
 }
 
 /* class for each component container */
@@ -39,4 +46,15 @@ body{
     margin: 3px;
     display: flex;
     overflow: hidden;
+}
+
+.titles{
+    position: relative;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    padding-top: 5%;
+    display: inline-block;
+    background-color: #fff;
 }
