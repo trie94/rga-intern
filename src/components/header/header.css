@@ -1,5 +1,6 @@
 .logo,
-.date {
+.date,
+.personas {
     flex-direction: column;
     align-items: center;
     padding: 10px;
@@ -12,4 +13,8 @@
 
 .date{
     margin-top: 6px !important;
+}
+
+.personas{
+   margin-bottom: 6px !important; 
 }
