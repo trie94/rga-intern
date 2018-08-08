@@ -8,7 +8,6 @@
   position: relative;
   margin-top: 5%;
   height: 100%;
-  /* width: 100%; */
 }
 
 .label-container{
@@ -22,17 +21,8 @@
 .source-container {
   position: relative;
   display: flex;
-  /* align-content: center; */
-  /* justify-content: center; */
-  /* width: 30%; */
-  /* border: 1px dashed blue; */
-}
-
-.circles {
-  /* border: 1px dashed green; */
 }
 
 .source-labels {
-  /* border: 1px dashed yellowgreen; */
   padding-left: 10px;
 }

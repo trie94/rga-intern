@@ -76,7 +76,7 @@ class Emoji extends React.Component {
         return (
             <div className="emoji">
                 <p className="titles">OVERALL RATING</p>
-                <p className="score">Your score is {this.score} our of 100.</p>
+                <p className="score">Your score is {this.score} out of 100.</p>
                 <img className="emoji-img" src={this.emoji[this.emoji_index]} style={colorObj}></img>
                 <img className="emoji-scores-img" src={this.emoji_scores}></img>
             </div>
