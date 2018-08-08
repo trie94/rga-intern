@@ -1,8 +1,8 @@
 import React from 'react';
 import './header.css';
-import logo from '../../assets/logo.png';
 import logo_colored from '../../assets/logo_colored.png';
-import logo_white from '../../assets/logo_white.png';
+
+import { generateProfile } from '../../js/generative-profile-system';
 
 class Header extends React.Component {
     constructor(props) {
@@ -70,6 +70,7 @@ class Header extends React.Component {
     };
 
     getProfile() {
+        // pass value when a button clicked
         console.log("get profile");
     }
 
