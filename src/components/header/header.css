@@ -2,14 +2,14 @@
 .date {
     flex-direction: column;
     align-items: center;
+    padding: 10px;
 }
 
 .logo-img {
     max-height: 40px;
-    padding: 3%;
+    padding: 10px;
 }
 
 .date{
     margin-top: 6px !important;
-    padding: 10px;
 }
