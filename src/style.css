@@ -49,7 +49,7 @@ body{
     margin: 3px;
     display: flex;
     position: relative;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .titles{
