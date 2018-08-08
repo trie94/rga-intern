@@ -63,40 +63,34 @@ class BiasBar extends React.Component {
 
         return (
             <div className="bias-section component-container">
-                <div className="black">
-                    <p className="titles">BIAS RATING</p>
-                    <div className="bias-bar">
-                        <div className="bar-container">
-                            <img src={bias_bar} className="bar-img" />
-                            <div className="bar-emojis">
-                                <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[0]}/>
-                                <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[1]}/>
-                                <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[2]}/>
-                                <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[3]}/>
-                                <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[4]}/>
-                                <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[5]}/>
-                                <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[6]}/>
-                            </div>
-                        </div>
-                        <div className="labels-container">
-                            <img src={bar_left} className="bar-labels" />
-                            <img src={bar_center} className="bar-labels" />
-                            <img src={bar_right} className="bar-labels" />
+                <p className="titles">BIAS RATING</p>
+                <div className="bias-bar">
+                    <div className="bar-container">
+                        <img src={bias_bar} className="bar-img" />
+                        <div className="bar-emojis">
+                            <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[0]}/>
+                            <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[1]}/>
+                            <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[2]}/>
+                            <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[3]}/>
+                            <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[4]}/>
+                            <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[5]}/>
+                            <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[6]}/>
                         </div>
                     </div>
-                    <div className="below-bias">
-                        <div className="cred-level component-container">
-                            <p className="titles">AVERAGE CREDIBILITY</p>
-                            <div className="values">
-                                <p className="value">{this.cred}</p>
-                                </div>
+                    <div className="labels-container">
+                        <img src={bar_left} className="bar-labels" />
+                        <img src={bar_center} className="bar-labels" />
+                        <img src={bar_right} className="bar-labels" />
                     </div>
-                        <div className="total-num component-container">
-                            <p className="titles">NUMBER OF ARTICLES READ</p>
-                            <div className="values">
-                            <p className="value">{this.total}</p>
-                            </div>
+                </div>
+                <div className="below-bias">
+                    <div className="cred-level">
+                        <p className="titles">AVERAGE CREDIBILITY</p>
+                        <p className="value">{this.cred}</p>
                     </div>
+                    <div className="total-num">
+                        <p className="titles">NUMBER OF ARTICLES READ</p>
+                        <p className="value">{this.total}</p>
                     </div>
                 </div>
             </div>

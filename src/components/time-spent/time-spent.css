@@ -1,2 +1,38 @@
-.time-spent {
+#time-spent-container{
+  height: 100%;
+  position: relative;
+  flex-direction: column;
+}
+
+.time-spent{
+  position: relative;
+  margin-top: 5%;
+  height: 100%;
+  /* width: 100%; */
+}
+
+.label-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5% 0;
+  margin: 0 auto;
+}
+
+.source-container {
+  position: relative;
+  display: flex;
+  /* align-content: center; */
+  /* justify-content: center; */
+  /* width: 30%; */
+  /* border: 1px dashed blue; */
+}
+
+.circles {
+  /* border: 1px dashed green; */
+}
+
+.source-labels {
+  /* border: 1px dashed yellowgreen; */
+  padding-left: 10px;
 }
