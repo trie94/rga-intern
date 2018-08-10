@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     entry: ['./src/js/index.js'],
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, './dist')
     },
 
@@ -47,28 +47,19 @@ module.exports = {
         }
         ],
     },
-
-    devtool: 'source-map',
-
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
+            title: 'Production',
             template: './src/html/index.html',
             filename: 'index.html'
         }),
         new MiniCssExtractPlugin({
+            title: 'Production',
             filename: './component/*/*.css',
             chunkFilename: '[id].css'
         }),
         new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-    ],
-
-    devServer: {
-        contentBase: path.resolve(__dirname, 'dist'),
-        watchContentBase: true,
-        hot: true,
-        open: true,
-        port: 9000
-    }
+        new webpack.HotModuleReplacementPlugin()
+    ]
 }

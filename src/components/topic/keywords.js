@@ -1,10 +1,9 @@
 import React from 'react';
 import './keywords.css';
-import news from '../../data/news-source.json';
-import { user } from '../../data/user-data';
+import { profiles_template } from '../../data/user-data-template';
 
 const COLORS = ["#354DF1", "#128DF3", "#476CE3", "#AE10CA", "#D2178E", "#ED255B", "#FA3841"];
-let profile_data = user;
+let profile_data = profiles_template.p1.profile;
 let issues = [];
 
 function getIssues() {

@@ -6,28 +6,45 @@ import mid from '../../assets/mid_emoji.png';
 import low from '../../assets/low_emoji.png';
 import lowest from '../../assets/lowest_emoji.png';
 import emoji_scores from '../../assets/emoji_scores.png';
-import { bias, user, score } from '../../data/user-data';
 
 const EMOJI_COLORS = ["#354DF1", "#128DF3", "#476CE3", "#AE10CA", "#D2178E", "#ED255B", "#FA3841"];
 
 class Emoji extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            bias: this.props.bias,
+            score: this.props.score,
+            color: this.getColor(this.props.bias),
+            emoji: this.getEmoji(this.props.score)
+        };
         this.emoji_scores = emoji_scores;
-        this.emoji = [lowest, low, mid, high, highest];
-        this.color = this.getColor(bias);
-        this.emoji_index = this.getEmoji(score);
-        this.score = score;
-
+        this.color = this.getColor(this.state.bias);
+        
         this.getEmoji = this.getEmoji.bind(this);
         this.getColor = this.getColor.bind(this);
     }
 
+    componentDidUpdate(){
+
+        if (this.state.bias !== this.props.bias){
+            this.setState({
+                bias: this.props.bias,
+                color: this.getColor(this.props.bias)
+            });
+        }
+        if (this.state.score !== this.props.score){
+            this.setState({
+                score: this.props.score,
+                emoji: this.getEmoji(this.props.score)
+            })
+        }
+    }
 
     getEmoji(score) {
 
         let emoji_index = 0;
+        let emoji_list = [lowest, low, mid, high, highest];
     
         if (score >= 0 && score <= 20) { emoji_index = 0; }
         else if (score >= 21 && score <= 40) { emoji_index = 1; }
@@ -35,7 +52,7 @@ class Emoji extends React.Component {
         else if (score >= 61 && score <= 80) { emoji_index = 3; }
         else if (score >= 81 && score <= 100) { emoji_index = 4; }
     
-        return emoji_index;
+        return emoji_list[emoji_index];
     }
     
     getColor(bias) {
@@ -74,14 +91,13 @@ class Emoji extends React.Component {
 
     render() {
         const colorObj = {
-            background: this.color
+            background: this.state.color
         };
 
         return (
             <div className="emoji">
-                <p className="titles">OVERALL RATING</p>
-                <p className="score">Your score is {this.score} out of 100.</p>
-                <img className="emoji-img" src={this.emoji[this.emoji_index]} style={colorObj}></img>
+                <p className="titles">SCORE  <span className="score">{this.state.score}</span> </p>  
+                <img className="emoji-img" src={this.state.emoji} style={colorObj}></img>
                 <img className="emoji-scores-img" src={this.emoji_scores}></img>
             </div>
         );

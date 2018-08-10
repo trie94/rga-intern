@@ -2,8 +2,6 @@ import React from 'react';
 import './header.css';
 import logo_colored from '../../assets/logo_colored.png';
 
-import { generateProfile } from '../../js/generative-profile-system';
-
 class Header extends React.Component {
     constructor(props) {
         super(props);
@@ -77,28 +75,9 @@ class Header extends React.Component {
     render() {
         return (
             <div>
-                <div className="personas component-container">
-                    <div>
-                        <button style={this.buttonStyle} onClick={this.refresh}>
-                            Get Another Report
-                    </button>
-                        <button style={this.buttonStyle} onClick={this.getProfile}>
-                            person1
-                    </button>
-                        <button style={this.buttonStyle} onClick={this.getProfile}>
-                            person2
-                    </button>
-                        <button style={this.buttonStyle} onClick={this.getProfile}>
-                            person3
-                    </button>
-                        <button style={this.buttonStyle} onClick={this.getProfile}>
-                            person4
-                    </button>
-                    </div>
-                </div>
                 <div className="logo component-container">
                     <img src={logo_colored} className="logo-img" />
-                    <p>TILT WEEKLY REPORT</p>
+                    <p className="titles header-value">TILT WEEKLY REPORT</p>
                 </div>
                 <div className="date component-container">
                     <p>{this.parseMonth(this.calcDate().getMonth())} {this.calcDate().getDate()}, {this.calcDate().getFullYear()} - {this.parseMonth(this.today.getMonth())} {this.today.getDate()}, {this.today.getFullYear()}</p>

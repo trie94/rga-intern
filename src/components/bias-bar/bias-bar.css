@@ -72,7 +72,8 @@
 }
 
 .value{
-    font-family: 'Work Sans' !important;
+    font-family: 'PT Mono' !important;
     font-size: 56px;
     background-color: #fff;
+    text-transform: capitalize;
 }

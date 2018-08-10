@@ -12,8 +12,8 @@ let scores = [];
 let total_score;
 
 // multipliers
-const B = 0.4;
-const C = 0.5;
+const B = 0.6;
+const C = 0.3;
 const T = 0.1;
 
 function extractComponent(media_intake){

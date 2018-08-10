@@ -6,8 +6,6 @@ import bar_center from '../../assets/bar_center.png';
 import bar_right from '../../assets/bar_right.png';
 import bar_emoji from '../../assets/bar_emoji.png';
 
-import { bias, cred, totalNum, user, score } from '../../data/user-data';
-
 function getPosition(bias){
     let position = [];
 
@@ -54,27 +52,50 @@ function getOpac(arr){
 class BiasBar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
-        this.cred = cred;
-        this.total = totalNum;
+        this.state = {
+            bias: this.props.bias,
+            cred: this.props.cred,
+            totalNum: this.props.totalNum,
+            pos: getPosition(this.props.bias)
+        };
+    }
+
+    componentDidUpdate(){
+
+        if (this.state.bias !== this.props.bias){
+            this.setState({
+                bias: this.props.bias,
+                pos: getPosition(this.props.bias)
+            });
+        }
+        if (this.state.cred !== this.props.cred){
+            this.setState({
+                cred: this.props.cred
+            });
+        }
+        if (this.state.totalNum !== this.props.totalNum){
+            this.setState({
+                totalNum: this.props.totalNum
+            });
+        }
     }
 
     render() {
 
         return (
             <div className="bias-section component-container">
-                <p className="titles">BIAS RATING</p>
+                <p className="titles">BIAS</p>
                 <div className="bias-bar">
                     <div className="bar-container">
                         <img src={bias_bar} className="bar-img" />
                         <div className="bar-emojis">
-                            <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[0]}/>
-                            <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[1]}/>
-                            <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[2]}/>
-                            <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[3]}/>
-                            <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[4]}/>
-                            <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[5]}/>
-                            <img src={bar_emoji} className="bar-emoji" style={getOpac(getPosition(bias))[6]}/>
+                            <img src={bar_emoji} className="bar-emoji" style={getOpac(this.state.pos)[0]}/>
+                            <img src={bar_emoji} className="bar-emoji" style={getOpac(this.state.pos)[1]}/>
+                            <img src={bar_emoji} className="bar-emoji" style={getOpac(this.state.pos)[2]}/>
+                            <img src={bar_emoji} className="bar-emoji" style={getOpac(this.state.pos)[3]}/>
+                            <img src={bar_emoji} className="bar-emoji" style={getOpac(this.state.pos)[4]}/>
+                            <img src={bar_emoji} className="bar-emoji" style={getOpac(this.state.pos)[5]}/>
+                            <img src={bar_emoji} className="bar-emoji" style={getOpac(this.state.pos)[6]}/>
                         </div>
                     </div>
                     <div className="labels-container">
@@ -85,12 +106,12 @@ class BiasBar extends React.Component {
                 </div>
                 <div className="below-bias">
                     <div className="cred-level">
-                        <p className="titles">AVERAGE CREDIBILITY</p>
-                        <p className="value">{this.cred}</p>
+                        <p className="titles">CREDIBILITY</p>
+                        <p className="value">{this.state.cred}</p>
                     </div>
                     <div className="total-num">
-                        <p className="titles">NUMBER OF ARTICLES READ</p>
-                        <p className="value">{this.total}</p>
+                        <p className="titles">ARTICLES READ</p>
+                        <p className="value">{this.state.totalNum}</p>
                     </div>
                 </div>
             </div>
