@@ -1,0 +1,247 @@
+.logo,
+.date {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo-img {
+    max-height: 40px;
+    padding: 10px;
+}
+
+.date{
+    margin-top: 6px !important;
+}
+
+.header-value {
+    padding: 10px !important;
+}
+.emoji {
+    background-color: #fff;
+    width: 50%;
+    text-align: center;
+    position: relative;
+    margin: 3px;
+    overflow: hidden;
+}
+
+.score {
+    font-size: 36px;
+    font-family: "PT Mono";
+}
+
+.emoji-img{
+    min-width: 150px;
+    width: 100%;
+    max-width: 50%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.emoji-scores-img{
+    position: absolute;
+    width: 15%;
+    min-width: 40px;
+    right: 15px;
+    bottom: 15px;
+}
+.bias-section {
+    width: 50%;
+    flex-direction: column;
+    background-color: #000 !important;
+}
+
+.bias-bar {
+    height: 30%;
+    background-color: #fff;
+}
+
+.below-bias{
+    height: 70%;
+    display: flex;
+    margin: 6px 0 0;
+}
+
+.bar-container{
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.bar-img{
+    width: 100%;
+    height: 20px;
+}
+
+.labels-container{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bar-labels{
+    height: 25px;
+}
+
+.bar-emoji{
+    z-index: 2;
+    height: 20px;
+}
+
+.bar-emojis{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cred-level,
+.total-num{
+    height: auto;
+    width: 50%;
+    text-align: center;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.cred-level{
+    margin: 0 3px 0 0;
+}
+
+.total-num{
+    margin: 0 0 0 3px;
+}
+
+.value{
+    font-family: 'PT Mono' !important;
+    font-size: 56px;
+    background-color: #fff;
+    text-transform: capitalize;
+}
+#time-spent-container{
+  height: 100%;
+  position: relative;
+  flex-direction: column;
+}
+
+.time-spent{
+  position: relative;
+  margin-top: 5%;
+  height: 100%;
+}
+
+.total-time-spent{
+  padding-bottom: 0px !important;
+}
+
+.label-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5% 0;
+  margin: 0 auto;
+}
+
+.source-container {
+  position: relative;
+  display: flex;
+}
+
+.source-labels {
+  padding-left: 10px;
+  text-transform: capitalize;
+}
+
+.total-time {
+  font-family: 'PT Mono';
+  font-size: 28px;
+  background-color: #fff;
+  text-align: center;
+  padding: 5%;
+  overflow: hidden;
+  letter-spacing: 0px !important;
+}
+*{
+    box-sizing: content-box;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+html{
+    font-family: "PT Sans", sans-serif;
+}
+
+.root{
+    width: 100%;
+    margin:0;
+}
+
+body{
+    margin: 0;
+}
+
+#app{
+    background-color: #fff;
+}
+
+.app-container {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    background-color: #000;
+    padding: 3px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    .app-container {
+        width: 100%;
+    }
+}
+
+.row {
+    display: flex;
+    height: 50%;
+    min-height: 300px;
+}
+
+/* class for each component container */
+.component-container {
+    background-color: #fff;
+    margin: 3px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.titles{
+    position: relative;
+    width: 90%;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    padding: 5%;
+    display: inline-block;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.personas {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.personas{
+   margin: 0 !important; 
+}
+
+
+/*# sourceMappingURL=*.css.map*/
