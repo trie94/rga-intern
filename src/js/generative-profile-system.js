@@ -93,6 +93,7 @@ function generateProfile(bias, cred, num, time) {
         profile.push(intake);
     }
 
+    // console.log(profile);
     return profile;
 }
 

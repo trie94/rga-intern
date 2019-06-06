@@ -48,7 +48,7 @@ module.exports = {
         ],
     },
     plugins: [
-        new CleanWebpackPlugin(['dist']),
+        new CleanWebpackPlugin(['dist/*']),
         new HtmlWebpackPlugin({
             title: 'Production',
             template: './src/html/index.html',
@@ -61,5 +61,10 @@ module.exports = {
         }),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
-    ]
+    ],
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
+    }
 }
