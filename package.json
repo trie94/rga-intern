@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/trie94/rga-intern#readme",
   "dependencies": {
-    "chart.js": "^2.7.2",
+    "chart.js": "^2.9.4",
     "d3": "^5.5.0",
     "express": "^4.16.3",
     "path": "^0.12.7",
