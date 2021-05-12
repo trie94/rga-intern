@@ -18,16 +18,13 @@
     "url": "https://github.com/trie94/rga-intern/issues"
   },
   "homepage": "https://github.com/trie94/rga-intern#readme",
-  "dependencies": {
+  "devDependencies": {
     "chart.js": "^2.9.4",
     "d3": "^5.5.0",
-    "express": "^4.16.3",
     "path": "^0.12.7",
     "react": "^16.4.2",
     "react-chartjs-2": "^2.7.4",
-    "react-dom": "^16.4.2"
-  },
-  "devDependencies": {
+    "react-dom": "^16.4.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
